@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Resort Information Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+
+</head>
+
+<body>
+  <section class="head">
+    <div class="container flex1">
+      <div class="scoial">
+        <a href="https://www.facebook.com/groups/247032173515660"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/GenshinImpact/status/1720380413728985325"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/results?search_query=resort"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="logo">
+        <img src="image/.jpg" alt="">
+      </div>
+      <div class="address">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Blk 3 Lot 9 Lagos Subdivision, Calamba, 4027 Laguna</span>
+      </div>
+    </div>
+  </section>
+
+
+  <header class="header">
+    <div class="container">
+      <nav class="navbar flex1">
+        <div class="sticky_logo logo">
+          <img src="image/logo.png" alt="">
+        </div>
+
+        <ul class="nav-menu">
+          <li> <a href="#home">Home</a> </li>
+          <li> <a href="#about">About</a> </li>
+          <li> <a href="#room">Room</a> </li>
+          <li> <a href="#services">Services</a> </li>
+          <li> <a href="#gallary">Gallery</a> </li>
+          <li> <a href="#map">Map</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+
+        <div class="head_contact">
+          <i class="fas fa-phone-volume"></i>
+          <span>+000 1234 5678</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobliemmenu);
+
+    function mobliemmenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    window.addEventListener("scroll", function() {
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky", window.scrollY > 0)
+    })
+  </script>
+
+
+  <section class="home" id="home">
+    <div class="container">
+      <h1>Start of  a Journey</h1>
+      <p>Join us, as we cut the ribbon of new beginnings</p>
+      <button class="flex1" id="formbutton">
+        <span>Reserve Now!</span>
+        <i class="fas fa-arrow-circle-right"></i>
+      </button>
+
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="heading">
+        <h5>EXPLORE</h5>
+        <h2>Unveiling Tranquility and Luxury
+        </h2>
+      </div>
+
+      <div class="content flex  top">
+        <div class="left">
+          <h3>Start of the Experience
+          </h3>
+          <p>Welcome to Lake Bridge Resort – Your Gateway to Serenity and Luxury! Nestled amidst nature's embrace, Lake Bridge Resort invites you to embark on an unforgettable journey of relaxation and adventure. 
+            As the digital gateway to our idyllic retreat, our website is crafted to offer a glimpse into the unparalleled beauty and exceptional experiences that await you at Lake Bridge. Whether you seek tranquil lakeside moments, 
+            thrilling outdoor activities, 
+            or the perfect venue for your next event, Lake Bridge Resort is your haven of indulgence and escape.</p>
+          <p> </p>
+          <button class="flex1" id="formbutton">
+            <span>Reserve Now!</span>
+            <i class="fas fa-arrow-circle-right"></i>
+          </button>
+        </div>
+        <div class="right">
+          <img src="image/pic3.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="wrapper">
+    <div class="container">
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="heading">
+            <h5>NATURE'S BRIDGE</h5>
+            <h3>Experience Paradise</h3>
+          </div>
+          <p>Experience the enchanting allure of Lake Bridge Resort as you immerse yourself in the captivating ambiance of our lake views. 
+            The gentle ripples of the lake, the soothing sounds of nature, and the panoramic vistas create a symphony of tranquility. 
+            The feel of Lake Bridge is a harmonious blend of serenity and luxury, inviting you to unwind and savor the picturesque beauty that surrounds our resort. 
+            Whether you're enjoying a lakeside stroll, sipping a refreshing drink on the terrace, or simply relishing the breathtaking sunset, the lake view at Lake Bridge Resort promises a sensory experience that lingers in your memory. 
+            </p>
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  <script>
+    // Add a click event listener to the button
+    document.getElementById('formbutton').addEventListener('click', function() {
+      // Redirect to form.html
+      window.location.href = 'form.html';
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      navText: ["<i class='far fa-long-arrow-alt-left'></i>", "<i class='far fa-long-arrow-alt-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    })
+  </script>
+
+
+  <section class="wrapper2">
+    <div class="container">
+      <div class="heading mtop">
+        <h5>FACILITIES</h5>
+        <h2>Everything for your Satisfaction </h2>
+      </div>
+
+      <div class="content grid mtop">
+        <div class="box">
+          <i class="fas fa-shipping-fast"></i>
+          <h3>Express Order Delivery</h3>
+          <p>Got short on food? We got you!!</p>
+          <a href="form.html"><span class='far fa-long-arrow-alt-right'></span></a>
+        </div>
+        <div class="box">
+          <i class="fas fa-wine-bottle"></i>
+          <h3>Barista Included</h3>
+          <p>The resort has the best Barista for your personal mix</p>
+          <a href="form.html"><span class='far fa-long-arrow-alt-right'></span></a>
+        </div>
+        <div class="box">
+          <i class="fas fa-car"></i>
+          <h3>Transportation Rental Servies</h3>
+          <p>Vehicle or on the go!!!</p>
+          <a href="form.html"><span class='far fa-long-arrow-alt-right'></span></a>
+        </div>
+        <div class="box">
+          <i class="far fa-water"></i>
+          <h3>Quality Water</h3>
+          <p>The water we provide are tested and filtered. Ensuring your safety and for you to enjoy with no worries.</p>
+          <a href="form.html"><span class='far fa-long-arrow-alt-right'></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="room wrapper2 top" id="room">
+    <div class="container">
+      <div class="heading">
+        <h5>OUR ROOMS</h5>
+        <h2>Luxury rooms and Cottages </h2>
+      </div>
+      <div class="content flex mtop">
+        <div class="left grid2">
+          <div class="box">
+            <i class="fas fa-desktop"></i>
+            <p>KTV </p>
+            <p>Movie room can be availed</p>
+            <h3>Price may vary</h3>
+          </div>
+          <div class="box">
+            <i class="fas fa-dollar-sign"></i>
+            <p>30k to 60k</p>
+            <h3>Best rate guarantee</h3>
+          </div>
+          <div class="box">
+            <i class="fab fa-resolving"></i>
+            <p>Downpayment based on Negotiations</p>
+            <h3>Reservations 24/7</h3>
+          </div>
+          <div class="box">
+            <i class="fas fa-wifi"></i>
+            <p>Free Cost</p>
+            <h3>High-speed Wi-Fi</h3>
+          </div>
+          <div class="box">
+            <i class="fas fa-mug-hot"></i>
+            <p>Free Cost</p>
+            <h3>Breafast and Coffee are free for Overnights</h3>
+          </div>
+          <div class="box">
+            <i class="fas fa-user-tie"></i>
+            <p>Chef and Waiter</p>
+            <h3>One person free</h3>
+          </div>
+        </div>
+        <div class="right">
+          <img src="image/pic4.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timer about wrapper">
+    <div class="background"> </div>
+    <div class="container">
+      <div class="heading">
+        <h5>Blessing Countdown</h5>
+        <h2> <span>Horray you are invited!</span> Save the date!!</h2>
+      </div>
+
+      <div id="time" class="flex1 mtop"> </div>
+    </div>
+  </section>
+  <script src="js/jquery.countdown.js" charset="utf-8"></script>
+  <script src="js/jquery.countdown.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    // Set the target date
+    var targetDate = new Date('2024-02-24T00:00:00');
+  
+    function updateCountdown() {
+      var currentDate = new Date();
+      var timeDifference = targetDate - currentDate;
+  
+      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+      // Update the HTML with the new values
+      $('#time').html(
+        '<div class="clock"><span>' + days + '</span> <p>Days</p></div> ' +
+        '<div class="clock"><span>' + hours + '</span> <p>Hours</p></div> ' +
+        '<div class="clock"><span>' + minutes + '</span> <p>Minutes</p></div> ' +
+        '<div class="clock"><span>' + seconds + '</span> <p>Seconds</p></div>'
+      );
+    }
+  
+    // Call the updateCountdown function initially
+    updateCountdown();
+  
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+  </script>
+  
+
+
+  <section class="offer mtop" id="services">
+    <div class="container">
+      <div class="heading">
+        <h5>Rooms and Beds </h5>
+        <h3>Fully Airconditioned </h3>
+      </div>
+
+      <div class="content grid2 mtop">
+        <div class="box flex">
+          <div class="left">
+            <img src="image/pic15.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Billard Room </h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>Play With your friends and Family to your heart content</p>
+            <h5></h5>
+           
+          </div>
+        </div>
+        <div class="box flex">
+          <div class="left">
+            <img src="image/pic16.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Guest Room</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              
+            </div>
+            <p> Main rooms for the guest. Ensures greatest relaxation.</p>
+            <h5></h5>
+           
+          </div>
+        </div>
+        <div class="box flex">
+          <div class="left">
+            <img src="image/pic11.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Host room</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p> Includes 2 queen sized bed and TV</p>
+            
+          </div>
+        </div>
+        <div class="box flex">
+          <div class="left">
+            <img src="image/pic13.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Event Hall</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p> </p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallary top" id="gallary">
+    <div class="owl-carousel owl-theme">
+      <div class="item">
+        <img src="image/pic3.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic6.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic7.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic8.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic9.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic10.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic12.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="item">
+        <img src="image/pic14.jpg" alt="">
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 0,
+      nav: false,
+      dots: false,
+      autoplay: true,
+      slideTransition: 'linear',
+      autoplayTimeout: 4000,
+      autoplaySpeed: 4000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    })
+  </script>
+
+<section class="map top" id="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.9525284642696!2d121.17991079283753!3d14.173942349610513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6377e2c4bb35%3A0x4c1bbea49a6ef12b!2sCasa%20Demetria%20Duplex%20Hot%20Spring%20Resort!5e1!3m2!1sen!2sph!4v1703659301256!5m2!1sen!2sph" width="600" height="450" style="border:0;"
+    allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+  <footer>
+      <div class="content grid  top">
+        <div class="box">
+          <div class="logo">
+            <img src="image/logo.png" alt="">
+          </div>
+          <p>Thank you for exploring Lake Bridge Resort online. 
+            For reservations, inquiries, or to plan your next escape, contact us. 
+            Follow us on social media for updates, promotions, and more. 
+            Your journey to serenity begins here. Lake Bridge Resort - Where Tranquility Meets Luxury." </p>
+          <div class="social flex">
+            <a href="https://www.facebook.com/groups/247032173515660"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/GenshinImpact/status/1720380413728985325"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/results?search_query=resort"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h2>Services</h2>
+          <ul>
+            <li><i class="fas fa-angle-double-right"></i>Restaurant</li>
+            <li><i class="fas fa-angle-double-right"></i>Swimming Pool</li>
+            <li><i class="fas fa-angle-double-right"></i>Jacuzzi</li>
+            <li><i class="fas fa-angle-double-right"></i>Conference Room</li>
+            <li><i class="fas fa-angle-double-right"></i>Events</li>
+        
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>About</h2>
+          <div class="icon flex">
+            <div class="i">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="text">
+              <h3>Address</h3>
+              <p>Blk 3 Lot 9 Lagos Subdivision, Calamba, 4027 Laguna</p>
+            </div>
+          </div>
+          <div class="icon flex">
+            <div class="i">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="text">
+              <h3>Phone</h3>
+              <p>09090090909</p>
+            </div>
+          </div>
+          <div class="icon flex">
+            <div class="i">
+              <i class="far fa-envelope"></i>
+            </div>
+            <div class="text">
+              <h3>Email</h3>
+              <p>ako@ako.com.ph</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+
+</html>
+

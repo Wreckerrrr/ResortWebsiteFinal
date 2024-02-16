@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resort Reservation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('image/pic12.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Custom Modal Styles */
+        #custom-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #92e9cf;  
+            margin: 15% auto;
+            padding: 50px;
+           
+            border: 1px solid #a17e7e;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            padding-left: 20px;
+            color: #000000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+        }
+
+        /* Animation for Modal */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="#" method="post">
+        <h2>Resort Reservation Form</h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="check-in-date">Check-in Date:</label>
+        <input type="date" id="check-in-date" name="check-in-date" required>
+
+        <label for="check-out-date">Check-out Date:</label>
+        <input type="date" id="check-out-date" name="check-out-date" required>
+
+        <label for="room-type">Room Type:</label>
+        <select id="room-type" name="room-type" required>
+            <option value="standard">Standard Room</option>
+            <option value="deluxe">Deluxe Room</option>
+            <option value="suite">Suite</option>
+        </select>
+
+        <label for="special-requests">Special Requests:</label>
+        <textarea id="special-requests" name="special-requests" rows="8"></textarea>
+
+        <div class="button-container">
+            <button type="button" id="submit">Submit Reservation</button>
+            <button type="button" id="backButton">Go Back</button>
+        </div>
+    </form>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+        import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmg_lVKFbqpcD_hxI6Ylc_NuRguLqfVfU",
+            authDomain: "contactform-b48e2.firebaseapp.com",
+            databaseURL: "https://contactform-b48e2-default-rtdb.firebaseio.com",
+            projectId: "contactform-b48e2",
+            storageBucket: "contactform-b48e2.appspot.com",
+            messagingSenderId: "721396209961",
+            appId: "1:721396209961:web:34b31d3af8d248da093f38",
+            measurementId: "G-MD0WGGZBL4"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById("submit").addEventListener('click', function (e) {
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const phoneInput = document.getElementById("phone");
+            const checkInDateInput = document.getElementById("check-in-date");
+            const checkOutDateInput = document.getElementById("check-out-date");
+            const roomTypeInput = document.getElementById("room-type");
+            const specialRequestsInput = document.getElementById("special-requests");
+
+            // Validate required fields
+            if (!nameInput.value || !emailInput.value || !phoneInput.value || !checkInDateInput.value || !checkOutDateInput.value) {
+                alert("Please fill in all the information.");
+                return;
+            }
+
+            // Check if the email contains the "@" symbol
+            if (!emailInput.value.includes('@')) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Check if check-in date is not in the past
+            const currentDate = new Date().toISOString().split("T")[0];
+            if (checkInDateInput.value < currentDate) {
+                alert("Please select a check-in date that is not in the past.");
+                return;
+            }
+
+            // Check if check-out date is not in the past and is after the check-in date
+            if (checkOutDateInput.value < currentDate || checkOutDateInput.value <= checkInDateInput.value) {
+                alert("Please select a valid check-out date.");
+                return;
+            }
+
+            // Submission logic if the email is valid and dates are acceptable
+            const reservationData = {
+                name: nameInput.value,
+                email: emailInput.value,
+                phone: phoneInput.value,
+                checkin: checkInDateInput.value,
+                checkout: checkOutDateInput.value,
+                roomtype: roomTypeInput.value,
+                specialrequest: specialRequestsInput.value,
+                status: 'pending' // Added status for approval
+            };
+
+            // Check for existing reservations on the specified dates
+            const reservationsRef = ref(db, 'user/');
+            const overlappingReservations = [];
+
+            get(reservationsRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    const allReservations = snapshot.val();
+
+                    // Check for overlapping reservations
+                    Object.keys(allReservations).forEach((reservationKey) => {
+                        const existingReservation = allReservations[reservationKey];
+                        const existingCheckIn = existingReservation.checkin;
+                        const existingCheckOut = existingReservation.checkout;
+
+                        if (
+                            (reservationData.checkin >= existingCheckIn && reservationData.checkin <= existingCheckOut) ||
+                            (reservationData.checkout >= existingCheckIn && reservationData.checkout <= existingCheckOut)
+                        ) {
+                            overlappingReservations.push(existingReservation);
+                        }
+                    });
+                }
+
+                if (overlappingReservations.length > 0) {
+                // Dates are already occupied, show a pop-up message
+                const overlappingDates = overlappingReservations.map((reservation) => {
+                    return `${reservation.checkin} to ${reservation.checkout}`;
+                });
+
+                // Display the message in the custom modal
+                const modalMessage = document.getElementById('modal-message');
+                modalMessage.innerHTML = `The selected dates are already occupied. Existing reservations: ${overlappingDates.join(', ')}`;
+
+                // Open the custom modal
+                const modal = document.getElementById('custom-modal');
+                modal.style.display = 'block';
+
+                // Close the modal when the user clicks on the close button
+                const closeModal = document.getElementsByClassName('close')[0];
+                closeModal.onclick = function () {
+                    modal.style.display = 'none';
+                };
+
+                // Close the modal if the user clicks anywhere outside of it
+                window.onclick = function (event) {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                };
+            } else {
+                    // No overlapping reservations, proceed with submission
+                    set(ref(db, 'user/' + nameInput.value), reservationData).then(() => {
+                        // Clear input fields after successful submission
+                        nameInput.value = '';
+                        emailInput.value = '';
+                        phoneInput.value = '';
+                        checkInDateInput.value = '';
+                        checkOutDateInput.value = '';
+                        roomTypeInput.value = 'standard'; // Reset to default value
+                        specialRequestsInput.value = '';
+
+                        alert("Reserved Successfully !");
+                    }).catch((error) => {
+                        console.error("Error submitting reservation:", error);
+                        alert("Error submitting reservation. Please try again.");
+                    });
+                }
+            }).catch((error) => {
+                console.error("Error checking existing reservations:", error);
+                alert("Error checking existing reservations. Please try again.");
+            });
+        });
+
+        document.getElementById("backButton").addEventListener('click', function (e) {
+            // Redirect to the main page
+            window.location.href = "index.html"; // Update the URL to your actual main page
+        });
+    </script>
+</body>
+
+</html>
